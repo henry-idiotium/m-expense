@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/residentListFragment">
+
+	<fragment
+		android:id="@+id/residentRegisterFragment"
+		android:name="vn.edu.greenwich.cw_1_sample.ui.resident.ResidentRegisterFragment"
+		android:label="Resident Registration"
+		tools:layout="@layout/fragment_resident_register" />
+
+	<fragment
+		android:id="@+id/residentListFragment"
+		android:name="vn.edu.greenwich.cw_1_sample.ui.resident.list.ResidentListFragment"
+		android:label="Resident List"
+		tools:layout="@layout/fragment_resident_list" >
+		<action
+			android:id="@+id/action_residentListFragment_to_residentDetailFragment"
+			app:destination="@id/residentDetailFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/residentDetailFragment"
+		android:name="vn.edu.greenwich.cw_1_sample.ui.resident.ResidentDetailFragment"
+		android:label="Resident Detail"
+		tools:layout="@layout/fragment_resident_detail">
+		<argument
+			android:name="Resident"
+			app:argType="vn.edu.greenwich.cw_1_sample.models.Resident" />
+		<action
+			android:id="@+id/action_residentDetailFragment_to_residentUpdateFragment"
+			app:destination="@id/residentUpdateFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/aboutUsFragment"
+		android:name="vn.edu.greenwich.cw_1_sample.ui.info.AboutUsFragment"
+		android:label="About Us"
+		tools:layout="@layout/fragment_about_us" />
+
+	<fragment
+		android:id="@+id/residentUpdateFragment"
+		android:name="vn.edu.greenwich.cw_1_sample.ui.resident.ResidentUpdateFragment"
+		android:label="Resident Update"
+		tools:layout="@layout/fragment_resident_update" />
+
+</navigation>

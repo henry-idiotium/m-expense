@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "259945062457",
+    "project_id": "java-10-firebase",
+    "storage_bucket": "java-10-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259945062457:android:8fbccd9377b99e0c162de8",
+        "android_client_info": {
+          "package_name": "vn.edu.greenwich.cw_1_sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259945062457-7i195732vaq65ip0l5bivtukaq0a2mgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq5-FgoinntpXgKXJiFCIOiso74q8eDO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259945062457-7i195732vaq65ip0l5bivtukaq0a2mgr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259945062457:android:89c359e174d8ee14162de8",
+        "android_client_info": {
+          "package_name": "vn.edu.greenwich.java_10"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259945062457-7i195732vaq65ip0l5bivtukaq0a2mgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq5-FgoinntpXgKXJiFCIOiso74q8eDO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259945062457-7i195732vaq65ip0l5bivtukaq0a2mgr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
