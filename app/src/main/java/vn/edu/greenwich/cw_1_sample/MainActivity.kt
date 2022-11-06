@@ -1,7 +1,10 @@
 package vn.edu.greenwich.cw_1_sample
 
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,56 +16,39 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 	private lateinit var _navController: NavController
 	private lateinit var _appBarConfig: AppBarConfiguration
+	private lateinit var _menuToggle: ActionBarDrawerToggle
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
 		val navHostFragment = fragment_container_view.getFragment<NavHostFragment>()
 
+		_menuToggle = ActionBarDrawerToggle(this, layout_main, R.string.nav_drawer_close, R.string.nav_drawer_open)
+		layout_main.addDrawerListener(_menuToggle)
+		_menuToggle.syncState()
+
 		_navController = navHostFragment.navController
 		nav_view.setupWithNavController(_navController)
-		_appBarConfig = AppBarConfiguration(
-			setOf(R.id.residentListFragment, R.id.residentRegisterFragment, R.id.aboutUsFragment),
-			layout_main
-		) // TODO: move resident register to resident list as a button
+
+		_appBarConfig = AppBarConfiguration(_navController.graph, layout_main)
+
+		supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 		setupActionBarWithNavController(_navController, _appBarConfig)
+	}
 
-/*
-		setupWithNavController(nav_view, navController)
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		var open = super.onOptionsItemSelected(item)
 
-		_appBarToggleBtn = ActionBarDrawerToggle(this, layout_main, open, close)
-		layout_main.addDrawerListener(_appBarToggleBtn)
-		_appBarToggleBtn.syncState()
-		supportActionBar?.setDisplayHomeAsUpEnabled(true)
-*/
+		if (layout_main.isDrawerOpen(GravityCompat.START)) {
+			layout_main.closeDrawer(GravityCompat.START)
+			open = true
+		}
+
+		return open
 	}
 
 	override fun onSupportNavigateUp(): Boolean {
 		return _navController.navigateUp(_appBarConfig) || super.onSupportNavigateUp()
 	}
-
-/*
-	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-		menuInflater.inflate(R.menu.menu_in_action, menu)
-		return super.onCreateOptionsMenu(menu)
-	}
-*/
-
-/*	override fun onOptionsItemSelected(item: MenuItem): Boolean {
-		if (_appBarToggleBtn.onOptionsItemSelected(item)) return true
-
-		return super.onOptionsItemSelected(item)
-//		return when (item.itemId) {
-//			android.R.id.home -> {
-//				onBackPressedDispatcher.onBackPressed()
-//				true
-//			}
-//			R.id.setting -> {
-//				startActivity(Intent(this, SettingActivity::class.java))
-//				true
-//			}
-//			else -> super.onOptionsItemSelected(item)
-//		}
-	}*/
 }

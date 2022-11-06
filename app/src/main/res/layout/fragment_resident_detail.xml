@@ -1,104 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.resident.ResidentDetailFragment">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="10dp"
+	tools:context=".ui.resident.ResidentDetailFragment"
+	tools:ignore="HardcodedText,RtlHardcoded">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="15dp">
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/fmResidentDetailBottomAppBar"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="bottom"
-                app:layout_constraintBottom_toBottomOf="@+id/fmResidentDetailName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/fmResidentDetailName"
-                app:menu="@menu/menu_in_detail" />
+		<LinearLayout
+			android:id="@+id/layout_linear_detail"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="20dp"
+			android:baselineAligned="false"
+			android:orientation="horizontal"
+			app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-                android:id="@+id/fmResidentDetailName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:padding="5dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+			<!-- Keys -->
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_gravity="left"
+				android:layout_weight="1"
+				android:orientation="vertical"
+				app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-                android:id="@+id/fmResidentDetailStartDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fmResidentDetailStartDateLabel"
-                app:layout_constraintTop_toTopOf="@+id/fmResidentDetailStartDateLabel" />
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/text_detail_name_label"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Name"
+					android:textColor="?android:textColorHint"
+					android:textSize="15sp" />
 
-        <TextView
-                android:id="@+id/fmResidentDetailStartDateLabel"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:text="@string/label_start_date"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fmResidentDetailName" />
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/text_detail_start_date_label"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:text="@string/label_start_date"
+					android:textColor="?android:textColorHint"
+					android:textSize="15sp" />
 
-        <TextView
-                android:id="@+id/fmResidentDetailOwner"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="@+id/fmResidentDetailStartDate"
-                app:layout_constraintStart_toStartOf="@+id/fmResidentDetailStartDate"
-                app:layout_constraintTop_toTopOf="@+id/fmResidentDetailOwnerLabel" />
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/text_detail_owner_label"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:text="@string/label_type"
+					android:textColor="?android:textColorHint"
+					android:textSize="15sp" />
 
-        <TextView
-                android:id="@+id/fmResidentDetailOwnerLabel"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/label_type"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="@+id/fmResidentDetailStartDateLabel"
-                app:layout_constraintStart_toStartOf="@+id/fmResidentDetailStartDateLabel"
-                app:layout_constraintTop_toBottomOf="@+id/fmResidentDetailStartDate" />
+			</LinearLayout>
 
-        <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fmResidentDetailRequestList"
-                android:name="vn.edu.greenwich.cw_1_sample.ui.request.list.RequestListFragment"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fmResidentDetailRequestButton"
-                tools:layout="@layout/fragment_request_list" />
+			<!-- Values -->
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_gravity="right"
+				android:layout_weight="2"
+				android:orientation="vertical">
 
-        <Button
-                android:id="@+id/fmResidentDetailRequestButton"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="25dp"
-                android:text="@string/label_add_request"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="@+id/fmResidentDetailOwner"
-                app:layout_constraintStart_toStartOf="@+id/fmResidentDetailOwnerLabel"
-                app:layout_constraintTop_toBottomOf="@+id/fmResidentDetailOwnerLabel" />
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/text_detail_name"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textSize="15sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/text_detail_start_date"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:textSize="15sp" />
+
+				<com.google.android.material.textview.MaterialTextView
+					android:id="@+id/text_detail_owner"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:textSize="15sp" />
+
+			</LinearLayout>
+
+
+		</LinearLayout>
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_marginTop="25dp"
+			android:background="@drawable/entity_list_with_background"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/layout_linear_detail">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/text_detail_request_list_header"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingVertical="2dp"
+				android:paddingLeft="20dp"
+				android:paddingRight="15dp"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<com.google.android.material.textview.MaterialTextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:text="Requests"
+					android:textSize="21sp"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<com.google.android.material.button.MaterialButton
+					android:id="@+id/btn_request_add"
+					style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:contentDescription="Submit"
+					app:icon="@drawable/ic_add"
+					app:iconGravity="textStart"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:maxImageSize="36dp" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginTop="20dp"
+				android:background="?backgroundColor"
+				app:layout_constraintTop_toBottomOf="@id/text_detail_request_list_header" />
+
+			<androidx.fragment.app.FragmentContainerView
+				android:id="@+id/list_requests"
+				android:name="vn.edu.greenwich.cw_1_sample.ui.request.list.RequestListFragment"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_marginTop="40dp"
+				android:layout_marginBottom="25dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/text_detail_request_list_header"
+				tools:layout="@layout/fragment_request_list" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

@@ -32,32 +32,9 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_gravity="start"
+		android:background="?background"
 		android:fitsSystemWindows="true"
+		app:itemIconSize="15dp"
 		app:menu="@menu/menu_nav_drawer" />
-
-	<!-- <androidx.fragment.app.FragmentContainerView
-			android:id="@+id/main_nav_host"
-			android:name="androidx.navigation.fragment.NavHostFragment"
-			android:layout_width="0dp"
-			android:layout_height="0dp"
-			android:layout_marginBottom="70dp"
-			app:defaultNavHost="true"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintHorizontal_bias="0.0"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintVertical_bias="0.0"
-			app:navGraph="@navigation/nav_graph" />
-
-		<com.google.android.material.bottomnavigation.BottomNavigationView
-			android:id="@+id/main_nav_bottom"
-			android:layout_width="0dp"
-			android:layout_height="0dp"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/main_nav_host"
-			app:menu="@menu/menu_in_main" /> -->
 
 </androidx.drawerlayout.widget.DrawerLayout>

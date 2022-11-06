@@ -14,17 +14,6 @@
 			android:theme="@style/Theme.MExpense"
 			tools:targetApi="31">
 
-		<!-- setting
-				<activity
-						android:name=".SettingActivity"
-						android:exported="false"
-						android:windowSoftInputMode="adjustPan">
-					<meta-data
-							android:name="android.app.lib_name"
-							android:value="" />
-				</activity>
-		-->
-
 		<activity
 				android:name=".MainActivity"
 				android:exported="true">

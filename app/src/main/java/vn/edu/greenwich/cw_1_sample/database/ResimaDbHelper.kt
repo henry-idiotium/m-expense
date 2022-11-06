@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class ResimaDbHelper(context: Context?) :
 	SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+
 	override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
 		sqLiteDatabase.execSQL(ResidentEntry.SQL_CREATE_TABLE.trimIndent())
 		sqLiteDatabase.execSQL(RequestEntry.SQL_CREATE_TABLE.trimIndent())

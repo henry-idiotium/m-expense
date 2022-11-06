@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.ContextMenu
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -12,12 +13,13 @@ import kotlinx.android.synthetic.main.fragment_resident_list.*
 import vn.edu.greenwich.cw_1_sample.R
 import vn.edu.greenwich.cw_1_sample.database.ResimaDAO
 import vn.edu.greenwich.cw_1_sample.models.Resident
+import vn.edu.greenwich.cw_1_sample.ui.resident.ResidentRegisterFragment
 import vn.edu.greenwich.cw_1_sample.ui.resident.ResidentSearchFragment
 
 class ResidentListFragment : Fragment(R.layout.fragment_resident_list), ResidentSearchFragment.FragmentListener {
 	private lateinit var _db: ResimaDAO
-	private var residentList = ArrayList<Resident>()
-	private lateinit var residentAdapter: ResidentAdapter
+	private lateinit var _residentAdapter: ResidentAdapter
+	private var _residentList = ArrayList<Resident>()
 
 	override fun onAttach(context: Context) {
 		super.onAttach(context)
@@ -28,17 +30,18 @@ class ResidentListFragment : Fragment(R.layout.fragment_resident_list), Resident
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		residentAdapter = ResidentAdapter(residentList)
+		_residentAdapter = ResidentAdapter(_residentList)
 
-		fmResidentListRecyclerView.adapter = residentAdapter
-		fmResidentListRecyclerView.layoutManager = LinearLayoutManager(context)
+		list_residents.adapter = _residentAdapter
+		list_residents.layoutManager = LinearLayoutManager(context)
 		DividerItemDecoration(context, LinearLayoutManager(context).orientation).let {
-			fmResidentListRecyclerView.addItemDecoration(it)
+			list_residents.addItemDecoration(it)
 		}
 
-		fmResidentListButtonResetSearch.setOnClickListener { resetSearch() }
-		fmResidentListButtonSearch.setOnClickListener { showSearchDialog() }
-		fmResidentListFilter.addTextChangedListener(filter())
+		imgbtn_search_reset.setOnClickListener { resetSearch() }
+		imgbtn_search.setOnClickListener { showSearchDialog() }
+		btn_resident_add.setOnClickListener { showRegisterResidentDialog() }
+		text_list_filter.addTextChangedListener(filter())
 	}
 
 	override fun onResume() {
@@ -47,26 +50,35 @@ class ResidentListFragment : Fragment(R.layout.fragment_resident_list), Resident
 		reloadList(null)
 	}
 
+	override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
+		super.onCreateContextMenu(menu, v, menuInfo)
+	}
+
+	override fun sendFromResidentSearchFragment(resident: Resident?) {
+		reloadList(if (resident?.isEmpty() == false) resident else null)
+	}
+
 	private fun reloadList(resident: Resident?) {
-		_db.let { residentList = it.getResidentList(resident, null, false) }
-		residentAdapter.updateList(residentList)
+		_db.let { _residentList = it.getResidentList(resident, null, false) }
+		_residentAdapter.updateList(_residentList)
 
 		// Show "No Resident." message.
-		fmResidentListEmptyNotice.visibility = if (residentList.isEmpty()) View.VISIBLE else View.GONE
+		text_empty_notice.visibility = if (_residentList.isEmpty()) View.VISIBLE else View.GONE
 	}
 
 	private fun filter(): TextWatcher {
 		return object : TextWatcher {
 			override fun beforeTextChanged(charSequence: CharSequence, start: Int, count: Int, after: Int) {}
 			override fun onTextChanged(charSequence: CharSequence, start: Int, before: Int, count: Int) {
-				residentAdapter.filter.filter(charSequence.toString())
+				_residentAdapter.filter.filter(charSequence.toString())
 			}
+
 			override fun afterTextChanged(editable: Editable) {}
 		}
 	}
 
 	private fun resetSearch() {
-		fmResidentListFilter.setText("")
+		text_list_filter.setText("")
 		reloadList(null)
 	}
 
@@ -74,7 +86,9 @@ class ResidentListFragment : Fragment(R.layout.fragment_resident_list), Resident
 		ResidentSearchFragment().show(childFragmentManager, null)
 	}
 
-	override fun sendFromResidentSearchFragment(resident: Resident?) {
-		reloadList(if (resident?.isEmpty() == false) resident else null)
+	private fun showRegisterResidentDialog() {
+		val residentRegisterDialog = ResidentRegisterFragment()
+
+		residentRegisterDialog.show(childFragmentManager, null)
 	}
 }

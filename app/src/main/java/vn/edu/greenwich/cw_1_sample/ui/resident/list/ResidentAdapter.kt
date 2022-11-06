@@ -45,9 +45,9 @@ class ResidentAdapter(var _originalList: ArrayList<Resident>) :
 		val owner = holder.itemView.resources.getString(R.string.label_owner)
 		val tenant = holder.itemView.resources.getString(R.string.label_tenant)
 
-		holder.listItemResidentName.text = resident.name
-		holder.listItemResidentStartDate.text = resident.startDate.toString().replace("\n", "")
-		holder.listItemResidentOwner.text = if (resident.owner == 1) owner else tenant
+		holder.listItemName.text = resident.name
+		holder.listItemStartDate.text = resident.startDate.toString().replace("\n", "")
+		holder.listItemOwner.text = if (resident.owner == 1) owner else tenant
 	}
 
 	override fun getItemCount(): Int = if (_filteredList == null) 0 else _filteredList!!.size
@@ -56,14 +56,14 @@ class ResidentAdapter(var _originalList: ArrayList<Resident>) :
 
 	inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 		private var _listItemResident: LinearLayout
-		var listItemResidentName: TextView
-		var listItemResidentStartDate: TextView
-		var listItemResidentOwner: TextView
+		var listItemStartDate: TextView
+		var listItemName: TextView
+		var listItemOwner: TextView
 
 		init {
-			listItemResidentName = itemView.findViewById(R.id.listItemResidentName)
-			listItemResidentStartDate = itemView.findViewById(R.id.listItemResidentStartDate)
-			listItemResidentOwner = itemView.findViewById(R.id.listItemResidentOwner)
+			listItemName = itemView.findViewById(R.id.listItemResidentName)
+			listItemStartDate = itemView.findViewById(R.id.listItemResidentStartDate)
+			listItemOwner = itemView.findViewById(R.id.listItemResidentOwner)
 			_listItemResident = itemView.findViewById(R.id.listItemResident)
 			_listItemResident.setOnClickListener(::showDetail)
 		}
@@ -73,7 +73,7 @@ class ResidentAdapter(var _originalList: ArrayList<Resident>) :
 			val bundle = Bundle()
 
 			bundle.putSerializable(ResidentDetailFragment.ARG_PARAM_RESIDENT, resident)
-			findNavController(view!!).navigate(R.id.residentDetailFragment, bundle)
+			findNavController(view!!).navigate(R.id.fragment_resident_detail, bundle)
 		}
 	}
 

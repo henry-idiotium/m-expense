@@ -16,6 +16,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        vectorDrawables.useSupportLibrary = true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,6 +50,9 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.0'
+
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.takisoft.preferencex:preferencex:1.1.0'
 
     testImplementation 'junit:junit:4.13.2'
 

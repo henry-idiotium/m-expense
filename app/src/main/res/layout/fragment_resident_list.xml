@@ -4,14 +4,15 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".ui.resident.list.ResidentListFragment">
+	tools:context=".ui.resident.list.ResidentListFragment"
+	tools:ignore="HardcodedText">
 
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
 		<EditText
-			android:id="@+id/fmResidentListFilter"
+			android:id="@+id/text_list_filter"
 			android:layout_width="0dp"
 			android:layout_height="51dp"
 			android:autofillHints="Filter keywords..."
@@ -21,21 +22,21 @@
 			android:paddingStart="10dp"
 			android:paddingEnd="10dp"
 			android:textSize="15sp"
-			app:layout_constraintEnd_toStartOf="@+id/fmResidentListButtonSearch"
+			app:layout_constraintEnd_toStartOf="@+id/imgbtn_search"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<ImageButton
-			android:id="@+id/fmResidentListButtonSearch"
+			android:id="@+id/imgbtn_search"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:contentDescription="search button"
 			android:src="?android:attr/actionModeWebSearchDrawable"
-			app:layout_constraintEnd_toStartOf="@+id/fmResidentListButtonResetSearch"
+			app:layout_constraintEnd_toStartOf="@+id/imgbtn_search_reset"
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<ImageButton
-			android:id="@+id/fmResidentListButtonResetSearch"
+			android:id="@+id/imgbtn_search_reset"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:contentDescription="reset button"
@@ -44,7 +45,7 @@
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
-			android:id="@+id/fmResidentListEmptyNotice"
+			android:id="@+id/text_empty_notice"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="15dp"
@@ -54,10 +55,10 @@
 			android:textSize="15sp"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/fmResidentListFilter" />
+			app:layout_constraintTop_toBottomOf="@+id/text_list_filter" />
 
 		<androidx.recyclerview.widget.RecyclerView
-			android:id="@+id/fmResidentListRecyclerView"
+			android:id="@+id/list_residents"
 			android:layout_width="0dp"
 			android:layout_height="0dp"
 			android:layout_marginTop="15dp"
@@ -65,9 +66,19 @@
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintHorizontal_bias="0.0"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/fmResidentListFilter"
+			app:layout_constraintTop_toBottomOf="@+id/text_list_filter"
 			app:layout_constraintVertical_bias="0.0" />
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/btn_resident_add"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end|bottom"
+		android:layout_margin="16dp"
+		android:contentDescription="Submit"
+		android:src="@drawable/ic_add"
+		app:maxImageSize="36dp" />
 
 </FrameLayout>

@@ -27,17 +27,17 @@ class ResidentRegisterConfirmFragment(var resident: Resident? = null) :
 
 		setWidthPercent()
 
-		fmResidentRegisterConfirmButtonCancel.setOnClickListener { dismiss() }
-		fmResidentRegisterConfirmButtonConfirm.setOnClickListener { confirm() }
-		fmResidentRegisterConfirmName.text = when {
+		btn_cancel.setOnClickListener { dismiss() }
+		btn_confirm.setOnClickListener { confirm() }
+		text_confirm_name.text = when {
 			_resident.name?.trim()?.isNotEmpty() == false -> getString(R.string.error_no_info)
 			else -> _resident.name
 		}
-		fmResidentRegisterConfirmStartDate.text = when {
+		text_confirm_start_date.text = when {
 			_resident.startDate?.trim()?.isNotEmpty() == false -> getString(R.string.error_no_info)
 			else -> _resident.startDate
 		}
-		fmResidentRegisterConfirmOwner.text = when (_resident.owner) {
+		text_confirm_owner.text = when (_resident.owner) {
 			-1 -> getString(R.string.error_no_info)
 			1 -> getString(R.string.label_owner)
 			else -> getString(R.string.label_tenant)

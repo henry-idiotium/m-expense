@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="HardcodedText">
+
+	<Preference
+		app:key="@string/pref_back_up_key"
+		app:summary="Backup current residents to the cloud"
+		app:title="Back up" />
+
+	<Preference
+		app:key="@string/pref_reset_db_key"
+		app:summary="Delete all of the current residents"
+		app:title="Reset database" />
+
+</PreferenceScreen>

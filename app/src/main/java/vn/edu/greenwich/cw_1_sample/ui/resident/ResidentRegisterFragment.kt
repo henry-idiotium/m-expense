@@ -5,18 +5,21 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.fragment_resident_register.*
 import vn.edu.greenwich.cw_1_sample.R
 import vn.edu.greenwich.cw_1_sample.database.ResimaDAO
 import vn.edu.greenwich.cw_1_sample.models.Resident
 import vn.edu.greenwich.cw_1_sample.ui.dialog.CalendarFragment
 import vn.edu.greenwich.cw_1_sample.utils.serializable
+import vn.edu.greenwich.cw_1_sample.utils.setBackgroundTransparent
+import vn.edu.greenwich.cw_1_sample.utils.setWidthPercent
 
 open class ResidentRegisterFragment :
-	Fragment(R.layout.fragment_resident_register),
+	DialogFragment(R.layout.fragment_resident_register),
 	ResidentRegisterConfirmFragment.FragmentListener,
 	CalendarFragment.FragmentListener {
 
@@ -28,26 +31,34 @@ open class ResidentRegisterFragment :
 		_db = ResimaDAO(getContext())
 	}
 
+	override fun onResume() {
+		super.onResume()
+
+		setWidthPercent(90)
+		setBackgroundTransparent()
+	}
+
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
 		// Show Calendar for choosing a date.
-		fmResidentRegisterStartDate.setOnTouchListener(fun(_: View, event: MotionEvent): Boolean = showCalendar(event))
+		text_register_start_date.setOnTouchListener(fun(_: View, event: MotionEvent): Boolean = showCalendar(event))
 
 		// Create new resident.
-		fmResidentRegisterButton.setOnClickListener { register() }
+		btn_register_submit.setOnClickListener { register() }
+		btn_register_cancel.setOnClickListener { dismiss() }
 
 		// what's this for ?
 		// Update current resident.
 		if (arguments != null) {
 			val resident = requireArguments().serializable<Resident>(ARG_PARAM_RESIDENT)
 
-			resident?.name?.let { fmResidentRegisterName.setText(it) }
-			resident?.startDate.let { fmResidentRegisterStartDate.setText(it) }
-			fmResidentRegisterOwner.isChecked = (resident?.owner == 1)
-			fmResidentRegisterButton.setText(R.string.label_update)
+			resident?.name?.let { text_register_name.setText(it) }
+			resident?.startDate?.let { text_register_start_date.setText(it) }
+			checkbox_register_owner.isChecked = (resident?.owner == 1)
+			btn_register_submit.setText(R.string.label_update)
 
-			resident?.id?.run { fmResidentRegisterButton.setOnClickListener { update(this) } }
+			resident?.id?.run { btn_register_submit.setOnClickListener { update(this) } }
 		}
 	}
 
@@ -59,62 +70,61 @@ open class ResidentRegisterFragment :
 	}
 
 	private fun update(id: Long) {
-		if (isValidForm()) {
-			val resident = getResidentFromInput(id)
-			val status = _db.updateResident(resident)
+		if (!isValidForm()) return moveButton()
 
-			status.let { (parentFragment as FragmentListener?)?.sendFromResidentRegisterFragment(it) }
+		val resident = getResidentFromInput(id)
+		val status = _db.updateResident(resident)
 
-			return
-		}
-		moveButton()
+		(parentFragment as FragmentListener?)?.sendFromResidentRegisterFragment(status)
 	}
 
 	private fun showCalendar(event: MotionEvent): Boolean {
 		if (event.action != MotionEvent.ACTION_DOWN) return false
 
 		CalendarFragment().show(childFragmentManager, null)
+
 		return true
 	}
 
 	private fun getResidentFromInput(id: Long): Resident {
-		val name = fmResidentRegisterName.text.toString()
-		val startDate = fmResidentRegisterStartDate.text.toString()
-		val owner = if (fmResidentRegisterOwner.isChecked) 1 else 0
+		val name = text_register_name.text.toString()
+		val startDate = text_register_start_date.text.toString()
+		val owner = if (checkbox_register_owner.isChecked) 1 else 0
 
 		return Resident(id, name, startDate, owner)
 	}
 
 	private fun isValidForm(): Boolean {
-		val name = fmResidentRegisterName.text.toString()
-		val startDate = fmResidentRegisterStartDate.text.toString()
-		var error = ""
+		val name = text_register_name.text.toString()
+		val date = text_register_start_date.text.toString()
+		val errors = mutableListOf<String>()
 
-		if (name.trim { it <= ' ' }.isEmpty()) {
-			error += "* ${getString(R.string.error_blank_name)}"
-			return false
+		if (name.none { !it.isWhitespace() }) errors.add(getString(R.string.error_blank_name))
+		if (date.none { !it.isWhitespace() }) errors.add(getString(R.string.error_blank_start_date))
+
+		val isValid: Boolean = errors.isEmpty()
+
+		list_errors.visibility = if (isValid) View.GONE else View.VISIBLE
+
+		if (!isValid) {
+			val res = android.R.layout.simple_list_item_1
+			list_errors.adapter = ArrayAdapter(requireContext(), res, errors)
 		}
-		if (startDate.trim { it <= ' ' }.isEmpty()) {
-			error += "* ${getString(R.string.error_blank_start_date)}"
-			return false
-		}
 
-		fmResidentRegisterError.text = error
-
-		return true
+		return isValid
 	}
 
 	private fun moveButton() {
-		val registerLayout = fmResidentRegisterLinearLayout
-		val btnParams = fmResidentRegisterButton.layoutParams as LinearLayout.LayoutParams
+		val registerLayout = layout_linear
+		val btnParams = btn_register_submit.layoutParams as LinearLayout.LayoutParams
 		val layoutLeftPadding = registerLayout.paddingLeft
 		val layoutRightPadding = registerLayout.paddingRight
 		val layoutWidth = registerLayout.width - layoutLeftPadding - layoutRightPadding
 
 		btnParams.width = ViewGroup.LayoutParams.WRAP_CONTENT
-		btnParams.topMargin += fmResidentRegisterButton.height
-		btnParams.leftMargin = if (btnParams.leftMargin == 0) layoutWidth - fmResidentRegisterButton.width else 0
-		fmResidentRegisterButton.layoutParams = btnParams
+		btnParams.topMargin += btn_register_submit.height
+		btnParams.leftMargin = if (btnParams.leftMargin == 0) layoutWidth - btn_register_submit.width else 0
+		btn_register_submit.layoutParams = btnParams
 	}
 
 	override fun sendFromResidentRegisterConfirmFragment(status: Long) {
@@ -122,13 +132,15 @@ open class ResidentRegisterFragment :
 			Toast.makeText(context, R.string.notification_create_fail, Toast.LENGTH_SHORT).show()
 		} else {
 			Toast.makeText(context, R.string.notification_create_success, Toast.LENGTH_SHORT).show()
-			fmResidentRegisterName.setText("")
-			fmResidentRegisterStartDate.setText("")
-			fmResidentRegisterName.requestFocus()
+			text_register_name.setText("")
+			text_register_start_date.setText("")
+			text_register_name.requestFocus()
 		}
+
+		dismiss()
 	}
 
-	override fun sendFromCalendarFragment(date: String?) = fmResidentRegisterStartDate.setText(date)
+	override fun sendFromCalendarFragment(date: String?) = text_register_start_date.setText(date)
 
 	interface FragmentListener {
 		fun sendFromResidentRegisterFragment(status: Long)

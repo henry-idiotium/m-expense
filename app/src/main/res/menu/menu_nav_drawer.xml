@@ -3,17 +3,15 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="HardcodedText">
 
-	<item
-		android:id="@+id/residentListFragment"
-		android:icon="@android:drawable/ic_dialog_dialer"
-		android:title="List" />
-	<item
-		android:id="@+id/residentRegisterFragment"
-		android:icon="@android:drawable/ic_input_add"
-		android:title="Register" />
-	<item
-		android:id="@+id/aboutUsFragment"
-		android:icon="@android:drawable/ic_dialog_info"
-		android:title="About" />
+	<group android:checkableBehavior="single">
+		<item
+			android:id="@+id/fragment_settings"
+			android:icon="@drawable/ic_settings"
+			android:title="Settings" />
+		<item
+			android:id="@+id/fragment_about_us"
+			android:icon="@drawable/ic_info"
+			android:title="About" />
+	</group>
 
 </menu>

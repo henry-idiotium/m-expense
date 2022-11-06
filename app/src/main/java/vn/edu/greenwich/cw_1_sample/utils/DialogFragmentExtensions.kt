@@ -1,7 +1,9 @@
 package vn.edu.greenwich.cw_1_sample.utils
 
 import android.content.res.Resources
+import android.graphics.Color
 import android.graphics.Rect
+import android.graphics.drawable.ColorDrawable
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 
@@ -25,4 +27,8 @@ fun DialogFragment.setWidthPercent(percentage: Int = 85) {
  */
 fun DialogFragment.setFullScreen() {
 	dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+}
+
+fun DialogFragment.setBackgroundTransparent() {
+	dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 }

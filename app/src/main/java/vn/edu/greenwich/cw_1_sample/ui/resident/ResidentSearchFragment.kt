@@ -11,6 +11,7 @@ import vn.edu.greenwich.cw_1_sample.ui.dialog.CalendarFragment
 import vn.edu.greenwich.cw_1_sample.utils.setWidthPercent
 
 class ResidentSearchFragment : DialogFragment(R.layout.fragment_resident_search), CalendarFragment.FragmentListener {
+
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
