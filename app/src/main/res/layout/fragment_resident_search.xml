@@ -1,75 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.resident.ResidentSearchFragment">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".ui.resident.ResidentSearchFragment"
+	tools:ignore="HardcodedText">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+	<!-- TODO: restyle -->
 
-        <TextView
-                android:id="@+id/fmResidentSearchTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="Search"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.473"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-        <EditText
-                android:id="@+id/fmResidentSearchName"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="25dp"
-                android:ems="10"
-                android:hint="Name"
-                android:inputType="textPersonName"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.467"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fmResidentSearchTitle" />
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/text_title"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="25dp"
+			android:text="Search"
+			android:textAlignment="center"
+			android:textSize="20sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.473"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-                android:id="@+id/fmResidentSearchDate"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="25dp"
-                android:ems="10"
-                android:hint="@string/label_start_date"
-                android:inputType="date"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="@+id/fmResidentSearchName"
-                app:layout_constraintStart_toStartOf="@+id/fmResidentSearchName"
-                app:layout_constraintTop_toBottomOf="@+id/fmResidentSearchName" />
+		<vn.edu.greenwich.cw_1_sample.ui.form.TextInputView
+			android:id="@+id/text_search_name"
+			android:layout_width="0dp"
+			android:layout_height="50dp"
+			android:layout_marginStart="25dp"
+			android:layout_marginTop="25dp"
+			android:layout_marginEnd="25dp"
+			android:inputType="textPersonName"
+			app:label="Name"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.467"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/text_title"
+			app:textSize="15sp" />
 
-        <Button
-                android:id="@+id/fmResidentSearchButtonCancel"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="50dp"
-                android:text="@string/label_cancel"
-                app:layout_constraintStart_toStartOf="@+id/fmResidentSearchDate"
-                app:layout_constraintTop_toBottomOf="@+id/fmResidentSearchDate" />
+		<vn.edu.greenwich.cw_1_sample.ui.form.TextInputView
+			android:id="@+id/text_search_date"
+			android:layout_width="0dp"
+			android:layout_height="50dp"
+			android:layout_marginTop="25dp"
+			android:ems="10"
+			android:hint="@string/label_start_date"
+			android:inputType="date"
+			android:textSize="15sp"
+			app:layout_constraintEnd_toEndOf="@+id/text_search_name"
+			app:layout_constraintStart_toStartOf="@+id/text_search_name"
+			app:layout_constraintTop_toBottomOf="@+id/text_search_name" />
 
-        <Button
-                android:id="@+id/fmResidentSearchButtonSearch"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="25dp"
-                android:text="@string/label_search"
-                app:layout_constraintBottom_toBottomOf="@+id/fmResidentSearchButtonCancel"
-                app:layout_constraintEnd_toEndOf="@+id/fmResidentSearchDate"
-                app:layout_constraintStart_toEndOf="@+id/fmResidentSearchButtonCancel"
-                app:layout_constraintTop_toTopOf="@+id/fmResidentSearchButtonCancel" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btn_search_cancel"
+			android:layout_width="100dp"
+			android:layout_height="50dp"
+			android:layout_marginTop="50dp"
+			android:text="@string/label_cancel"
+			app:layout_constraintStart_toStartOf="@+id/text_search_date"
+			app:layout_constraintTop_toBottomOf="@+id/text_search_date" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btn_search_submit"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_marginStart="25dp"
+			android:text="@string/label_search"
+			app:layout_constraintBottom_toBottomOf="@+id/btn_search_cancel"
+			app:layout_constraintEnd_toEndOf="@+id/text_search_date"
+			app:layout_constraintStart_toEndOf="@+id/btn_search_cancel"
+			app:layout_constraintTop_toTopOf="@+id/btn_search_cancel" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

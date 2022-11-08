@@ -10,15 +10,15 @@ import vn.edu.greenwich.cw_1_sample.models.Resident
 
 data class ResimaDAO(val context: Context?) {
 	private val _resimaDbHelper: ResimaDbHelper by lazy { ResimaDbHelper(context) }
-	private val _dbWrite: SQLiteDatabase by lazy { _resimaDbHelper.readableDatabase }
-	private val _dbRead: SQLiteDatabase by lazy { _resimaDbHelper.writableDatabase }
+	private val _dbWrite: SQLiteDatabase by lazy { _resimaDbHelper.writableDatabase }
+	private val _dbRead: SQLiteDatabase by lazy { _resimaDbHelper.readableDatabase }
 
 	fun close() {
 		_dbRead.close()
 		_dbWrite.close()
 	}
 
-	fun reset() = _resimaDbHelper.onUpgrade(_dbWrite, 0, 0)
+	fun reset() = _resimaDbHelper.clear(_dbWrite)
 
 	fun insertResident(resident: Resident): Long {
 		val values = getResidentValues(resident)

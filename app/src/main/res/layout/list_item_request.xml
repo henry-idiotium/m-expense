@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
 
-    <TextView
-            android:id="@+id/listItemRequestDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/text_request_date"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="25dp"
+		android:layout_marginTop="25dp"
+		android:textSize="11sp"
+		android:textStyle="bold"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-            android:id="@+id/listItemRequestTime"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="15dp"
-            android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="@+id/listItemRequestDate"
-            app:layout_constraintStart_toEndOf="@+id/listItemRequestDate"
-            app:layout_constraintTop_toTopOf="@+id/listItemRequestDate" />
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/text_request_time"
+		android:layout_width="wrap_content"
+		android:layout_height="0dp"
+		android:layout_marginStart="15dp"
+		android:textSize="11sp"
+		app:layout_constraintBottom_toBottomOf="@+id/text_request_date"
+		app:layout_constraintStart_toEndOf="@+id/text_request_date"
+		app:layout_constraintTop_toTopOf="@+id/text_request_date" />
 
-    <TextView
-            android:id="@+id/listItemRequestType"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginEnd="25dp"
-            android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="@+id/listItemRequestTime"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/listItemRequestTime" />
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/text_request_type"
+		android:layout_width="wrap_content"
+		android:layout_height="0dp"
+		android:layout_marginEnd="25dp"
+		android:textSize="11sp"
+		app:layout_constraintBottom_toBottomOf="@+id/text_request_time"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/text_request_time" />
 
-    <TextView
-            android:id="@+id/listItemRequestContent"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="15dp"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="@+id/listItemRequestType"
-            app:layout_constraintStart_toStartOf="@+id/listItemRequestDate"
-            app:layout_constraintTop_toBottomOf="@+id/listItemRequestDate" />
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/text_request_content"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:paddingBottom="15dp"
+		android:textSize="13sp"
+		app:layout_constraintEnd_toEndOf="@+id/text_request_type"
+		app:layout_constraintStart_toStartOf="@+id/text_request_date"
+		app:layout_constraintTop_toBottomOf="@+id/text_request_date" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

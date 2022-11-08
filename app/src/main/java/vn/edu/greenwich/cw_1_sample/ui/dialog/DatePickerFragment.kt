@@ -36,11 +36,11 @@ class DatePickerFragment : DialogFragment(R.layout.fragment_date_picker), OnDate
 			.replace("\n", "")
 
 		// listener
-		(parentFragment as FragmentListener?)?.sendFromDatePickerFragment(date)
+		(requireParentFragment() as FragmentListener).onDateChange(date)
 		dismiss()
 	}
 
 	interface FragmentListener {
-		fun sendFromDatePickerFragment(date: String?)
+		fun onDateChange(date: String)
 	}
 }

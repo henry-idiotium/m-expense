@@ -2,21 +2,22 @@ package vn.edu.greenwich.cw_1_sample.ui.resident
 
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_resident_detail.*
 import vn.edu.greenwich.cw_1_sample.R
 import vn.edu.greenwich.cw_1_sample.database.ResimaDAO
+import vn.edu.greenwich.cw_1_sample.databinding.FragmentResidentDetailBinding
 import vn.edu.greenwich.cw_1_sample.models.Request
 import vn.edu.greenwich.cw_1_sample.models.Resident
 import vn.edu.greenwich.cw_1_sample.ui.dialog.DeleteConfirmFragment
@@ -30,6 +31,7 @@ class ResidentDetailFragment :
 	RequestCreateFragment.FragmentListener,
 	MenuProvider {
 
+	private lateinit var _binding: FragmentResidentDetailBinding
 	private lateinit var _navController: NavController
 	private lateinit var _db: ResimaDAO
 	private var _resident: Resident? = null
@@ -40,35 +42,37 @@ class ResidentDetailFragment :
 		_db = ResimaDAO(getContext())
 	}
 
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-		super.onViewCreated(view, savedInstanceState)
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+		_binding = FragmentResidentDetailBinding.inflate(inflater, container, false)
+
+		_binding.btnRequestAdd.setOnClickListener { showAddRequestFragment() }
 
 		_navController = requireParentFragment().findNavController()
 
-		btn_request_add.setOnClickListener { showAddRequestFragment() }
-
-		val menuHost: MenuHost = requireActivity()
+		val menuHost = requireActivity()
 		menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
 		showDetails()
 		showRequestList()
+
+		return _binding.root
 	}
 
 	override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-		menuInflater.inflate(R.menu.menu_in_detail, menu)
+		menuInflater.inflate(R.menu.menu_resident_detail, menu)
 	}
 
 	override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
 		when (menuItem.itemId) {
-			R.id.menu_resident_detail_update -> showUpdateFragment()
-			R.id.menu_resident_detail_delete -> showDeleteConfirmFragment()
+			R.id.menu_action_resident_detail_update -> showUpdateFragment()
+			R.id.menu_action_resident_detail_delete -> showDeleteConfirmFragment()
 			android.R.id.home -> _navController.navigateUp()
 		}
 
 		return true
 	}
 
-	override fun sendFromDeleteConfirmFragment(status: Int) {
+	override fun onDeleteConfirm(status: Int) {
 		if (status == 1 && _resident?.id != null && _db.deleteResident(_resident!!.id) > 0) {
 			Toast.makeText(context, R.string.notification_delete_success, Toast.LENGTH_SHORT).show()
 			view?.let { findNavController(it).navigateUp() }
@@ -79,9 +83,7 @@ class ResidentDetailFragment :
 		Toast.makeText(context, R.string.notification_delete_fail, Toast.LENGTH_SHORT).show()
 	}
 
-	override fun sendFromRequestCreateFragment(request: Request?) {
-		if (request == null) return
-
+	override fun onCreateRequest(request: Request) {
 		_resident?.id?.let { request.residentId = it }
 
 		val id = _db.insertRequest(request)
@@ -105,9 +107,9 @@ class ResidentDetailFragment :
 			owner = if (_resident?.owner == 1) getString(R.string.label_owner) else getString(R.string.label_tenant)
 		}
 
-		text_detail_name.text = name
-		text_detail_start_date.text = startDate
-		text_detail_owner.text = owner
+		_binding.textDetailName.text = name
+		_binding.textDetailStartDate.text = startDate
+		_binding.textDetailOwner.text = owner
 	}
 
 	private fun showRequestList() {
@@ -128,7 +130,7 @@ class ResidentDetailFragment :
 			bundle.putSerializable(ResidentUpdateFragment.ARG_PARAM_RESIDENT, _resident)
 		}
 
-		_navController.navigate(R.id.menu_resident_detail_update, bundle)
+		_navController.navigate(R.id.menu_action_resident_detail_update, bundle)
 	}
 
 	private fun showDeleteConfirmFragment() {

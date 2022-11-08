@@ -31,7 +31,7 @@
 			app:argType="vn.edu.greenwich.cw_1_sample.models.Resident" />
 		<action
 			android:id="@+id/action_residentDetailFragment_to_residentUpdateFragment"
-			app:destination="@id/menu_resident_detail_update" />
+			app:destination="@id/menu_action_resident_detail_update" />
 	</fragment>
 
 	<fragment
@@ -41,7 +41,7 @@
 		tools:layout="@layout/fragment_about_us" />
 
 	<fragment
-		android:id="@+id/menu_resident_detail_update"
+		android:id="@+id/menu_action_resident_detail_update"
 		android:name="vn.edu.greenwich.cw_1_sample.ui.resident.ResidentUpdateFragment"
 		android:label="Resident Update"
 		tools:layout="@layout/fragment_resident_update" />
@@ -51,8 +51,4 @@
 		android:name="vn.edu.greenwich.cw_1_sample.ui.SettingsFragment"
 		android:label="Settings" />
 
-	<!-- Global action -->
-	<action
-		android:id="@+id/action_open_settings"
-		app:destination="@id/fragment_settings" />
 </navigation>

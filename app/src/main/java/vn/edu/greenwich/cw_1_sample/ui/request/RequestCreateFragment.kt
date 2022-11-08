@@ -1,11 +1,12 @@
 package vn.edu.greenwich.cw_1_sample.ui.request
 
 import android.os.Bundle
-import android.view.MotionEvent
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
-import kotlinx.android.synthetic.main.fragment_request_create.*
+import vn.edu.greenwich.cw_1_sample.databinding.FragmentRequestCreateBinding
 import vn.edu.greenwich.cw_1_sample.models.Request
 import vn.edu.greenwich.cw_1_sample.ui.dialog.DatePickerFragment
 import vn.edu.greenwich.cw_1_sample.ui.dialog.TimePickerFragment
@@ -18,24 +19,24 @@ class RequestCreateFragment :
 	DatePickerFragment.FragmentListener,
 	TimePickerFragment.FragmentListener {
 
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-		super.onViewCreated(view, savedInstanceState)
+	private lateinit var _binding: FragmentRequestCreateBinding
+
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+		_binding = FragmentRequestCreateBinding.inflate(inflater, container, false)
 
 		setTypeSpinner()
 
-		fmRequestCreateButtonAdd.setOnClickListener { createRequest() }
-		fmRequestCreateButtonCancel.setOnClickListener { dismiss() }
-		fmRequestCreateDate.setOnTouchListener(fun(_: View?, motionEvent: MotionEvent): Boolean {
-			return showDateDialog(motionEvent)
-		})
-		fmRequestCreateTime.setOnTouchListener(fun(_: View?, motionEvent: MotionEvent): Boolean {
-			return showTimeDialog(motionEvent)
-		})
+		_binding.btnRequestAdd.setOnClickListener { createRequest() }
+		_binding.btnRequestCancel.setOnClickListener { dismiss() }
+		_binding.textRequestDate.setOnClickListener { showDateDialog() }
+		_binding.textRequestTime.setOnClickListener { showTimeDialog() }
+
+		return _binding.root
 	}
 
-	override fun sendFromDatePickerFragment(date: String?) = fmRequestCreateDate.setText(date)
+	override fun onDateChange(date: String) = _binding.textRequestDate.setText(date)
 
-	override fun sendFromTimePickerFragment(time: String?) = fmRequestCreateTime.setText(time)
+	override fun onTimeChange(time: String) = _binding.textRequestTime.setText(time)
 
 	override fun onResume() {
 		super.onResume()
@@ -50,41 +51,27 @@ class RequestCreateFragment :
 			androidR.layout.simple_spinner_item
 		)
 		adapter.setDropDownViewResource(androidR.layout.simple_spinner_dropdown_item)
-		fmRequestCreateType.adapter = adapter
+		_binding.spinnerCreateType.adapter = adapter
 	}
 
-	private fun showDateDialog(motionEvent: MotionEvent): Boolean {
-		if (motionEvent.action == MotionEvent.ACTION_DOWN) {
-			DatePickerFragment().show(childFragmentManager, null)
-			return true
-		}
+	private fun showDateDialog() = DatePickerFragment().show(childFragmentManager, null)
 
-		return false
-	}
-
-	private fun showTimeDialog(motionEvent: MotionEvent): Boolean {
-		if (motionEvent.action == MotionEvent.ACTION_DOWN) {
-			TimePickerFragment().show(childFragmentManager, null)
-			return true
-		}
-
-		return false
-	}
+	private fun showTimeDialog() = TimePickerFragment().show(childFragmentManager, null)
 
 	private fun createRequest() {
 		val request = Request()
-		with(request) {
-			type = fmRequestCreateType.selectedItem.toString()
-			time = fmRequestCreateType.selectedItem.toString()
-			date = fmRequestCreateType.selectedItem.toString()
-			content = fmRequestCreateType.selectedItem.toString()
+		with(Request()) {
+			type = _binding.spinnerCreateType.selectedItem.toString()
+			time = _binding.spinnerCreateType.selectedItem.toString()
+			date = _binding.spinnerCreateType.selectedItem.toString()
+			content = _binding.spinnerCreateType.selectedItem.toString()
 		}
 
-		(parentFragment as FragmentListener?)?.sendFromRequestCreateFragment(request)
+		(requireParentFragment() as FragmentListener).onCreateRequest(request)
 		dismiss()
 	}
 
 	interface FragmentListener {
-		fun sendFromRequestCreateFragment(request: Request?)
+		fun onCreateRequest(request: Request)
 	}
 }

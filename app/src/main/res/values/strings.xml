@@ -66,4 +66,5 @@
 	<!-- Preference -->
 	<string name="pref_back_up_key">back_up</string>
 	<string name="pref_reset_db_key">reset_db</string>
+    <string name="error_message_unknown_exception">Something went wrong !!</string>
 </resources>

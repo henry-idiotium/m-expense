@@ -20,11 +20,11 @@ class DeleteConfirmFragment(message: String) : DialogFragment(R.layout.fragment_
 	}
 
 	private fun delete() {
-		(parentFragment as FragmentListener?)?.sendFromDeleteConfirmFragment(1)
+		(requireParentFragment() as FragmentListener).onDeleteConfirm(1)
 		dismiss()
 	}
 
 	interface FragmentListener {
-		fun sendFromDeleteConfirmFragment(status: Int)
+		fun onDeleteConfirm(status: Int)
 	}
 }

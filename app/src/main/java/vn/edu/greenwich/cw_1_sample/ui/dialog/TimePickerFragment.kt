@@ -29,11 +29,11 @@ class TimePickerFragment : DialogFragment(R.layout.fragment_time_picker), OnTime
 			.trimMargin()
 			.replace("\n", "")
 
-		(parentFragment as FragmentListener?)?.sendFromTimePickerFragment(time)
+		(requireParentFragment() as FragmentListener).onTimeChange(time)
 		dismiss()
 	}
 
 	interface FragmentListener {
-		fun sendFromTimePickerFragment(time: String?)
+		fun onTimeChange(time: String)
 	}
 }

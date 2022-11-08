@@ -21,44 +21,22 @@
 			app:layout_constraintTop_toTopOf="parent"
 			tools:layout_editor_absoluteX="0dp">
 
+
 			<!-- Name field -->
-			<com.google.android.material.textfield.TextInputLayout
+			<vn.edu.greenwich.cw_1_sample.ui.form.TextInputView
+				android:id="@+id/text_register_name"
 				android:layout_width="match_parent"
 				android:layout_height="70dp"
-				android:hint="@string/label_name">
-
-				<com.google.android.material.textfield.TextInputEditText
-					android:id="@+id/text_register_name"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:autofillHints=""
-					android:background="#0000"
-					android:inputType="textPersonName"
-					android:paddingStart="0dp"
-					android:paddingEnd="0dp"
-					android:textSize="14sp" />
-			</com.google.android.material.textfield.TextInputLayout>
+				app:label="Name"
+				app:textSize="14sp" />
 
 			<!-- Start Date field -->
-			<com.google.android.material.textfield.TextInputLayout
+			<vn.edu.greenwich.cw_1_sample.ui.form.TextInputView
+				android:id="@+id/text_register_start_date"
 				android:layout_width="match_parent"
 				android:layout_height="70dp"
-				android:layout_marginTop="20dp">
-
-				<com.google.android.material.textfield.TextInputEditText
-					android:id="@+id/text_register_start_date"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:allowUndo="true"
-					android:autofillHints=""
-					android:background="#0000"
-					android:drawablePadding="0dp"
-					android:hint="@string/label_start_date"
-					android:inputType="date"
-					android:paddingStart="0dp"
-					android:paddingEnd="0dp"
-					android:textSize="14sp" />
-			</com.google.android.material.textfield.TextInputLayout>
+				app:label="Starting Date"
+				app:textSize="14sp" />
 
 			<!-- Owner field -->
 			<com.google.android.material.checkbox.MaterialCheckBox

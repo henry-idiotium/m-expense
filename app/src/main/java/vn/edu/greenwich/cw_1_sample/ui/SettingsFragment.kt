@@ -34,6 +34,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 		super.onViewCreated(view, savedInstanceState)
 
 		_optionBackUp.setOnPreferenceClickListener { backup() }
+		_optionResetDb.setOnPreferenceClickListener { resetDatabase() }
 	}
 
 	private fun backup(): Boolean {
@@ -54,13 +55,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
 		val deviceName = arrayOf(manufacturer, model, release, version).joinToString(" ")
 		val backup = Backup(Date(), deviceName, residents, requests)
 
-		FirebaseFirestore.getInstance()
-			.collection(BackupEntry.TABLE_NAME).add(backup)
+		FirebaseFirestore.getInstance().collection(BackupEntry.TABLE_NAME).add(backup)
 			.addOnSuccessListener { document ->
 				Toast.makeText(_context, R.string.notification_backup_success, Toast.LENGTH_SHORT).show()
 				Log.d(resources.getString(R.string.label_backup_firestore), document.id)
-			}
-			.addOnFailureListener { e ->
+			}.addOnFailureListener { e ->
 				succeeded = false
 				Toast.makeText(_context, R.string.notification_backup_fail, Toast.LENGTH_SHORT).show()
 				e.printStackTrace()
@@ -69,9 +68,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
 		return succeeded
 	}
 
-	private fun resetDatabase() {
-		_db.reset()
-		Toast.makeText(_context, R.string.label_reset_database, Toast.LENGTH_SHORT).show()
+	private fun resetDatabase(): Boolean {
+		_db.reset().let {
+			val messageId = if (it) R.string.label_reset_database else R.string.error_message_unknown_exception
+
+			Toast.makeText(_context, messageId, Toast.LENGTH_SHORT).show()
+
+			return it
+		}
 	}
 
 	private fun getPreference(key: Int): Preference {

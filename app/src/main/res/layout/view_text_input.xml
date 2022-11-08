@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="HardcodedText">
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/layout_text_input"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/text_input"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#0000"
+			android:hint="Label"
+			android:textSize="14sp" />
+
+	</com.google.android.material.textfield.TextInputLayout>
+
+</merge>

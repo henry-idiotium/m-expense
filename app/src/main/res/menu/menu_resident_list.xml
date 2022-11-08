@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	tools:ignore="HardcodedText">
 	<item
-		android:id="@+id/action_reload_list"
+		android:id="@+id/menu_action_resident_list_reload"
 		android:icon="@drawable/ic_refresh"
 		android:title="Update"
-		app:showAsAction="always"/>
+		app:iconTint="?android:textColor"
+		app:showAsAction="ifRoom" />
 </menu>
