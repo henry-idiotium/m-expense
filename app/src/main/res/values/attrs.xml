@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--<editor-fold desc="global">-->
+	<attr name="colorConfirmCheck" format="reference" />
+	<attr name="backgroundDim" format="reference" />
+	<attr name="toolbarBackgroundColor" format="reference" />
+
+	<!-- defStyleAttr -->
+	<attr name="appButtonStyle" format="reference" />
+	<attr name="appIconButtonStyle" format="reference" />
+	<!--</editor-fold>-->
+
+	<!--<editor-fold desc="view props">-->
+	<declare-styleable name="TextInputView">
+		<attr name="minHeight" />
+		<attr name="endIconMode" />
+		<attr name="android:text" />
+		<attr name="placeholderText" />
+		<attr name="android:gravity" />
+		<attr name="android:textSize" />
+		<attr name="android:inputType" />
+		<attr name="label" format="string" />
+		<attr name="inputHeight" format="dimension" />
+		<attr name="textPaddingStart" format="dimension" />
+		<attr name="textPaddingTop" format="dimension" />
+		<attr name="textPaddingEnd" format="dimension" />
+		<attr name="textPaddingBottom" format="dimension" />
+		<attr name="textPaddingHorizontal" format="dimension" />
+		<attr name="textPaddingVertical" format="dimension" />
+	</declare-styleable>
+
+	<declare-styleable name="KeyValueWrapperView">
+		<attr name="left_text" format="string" />
+		<attr name="right_text" format="string" />
+	</declare-styleable>
+	<!--</editor-fold>-->
+</resources>

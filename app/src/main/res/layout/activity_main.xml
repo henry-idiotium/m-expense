@@ -5,6 +5,7 @@
 	android:id="@+id/drawer_layout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:background="?background"
 	android:fitsSystemWindows="true"
 	tools:openDrawer="start">
 
@@ -16,12 +17,11 @@
 
 	<com.google.android.material.navigation.NavigationView
 		android:id="@+id/nav_view"
-		android:layout_width="match_parent"
+		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
 		android:layout_gravity="start"
 		android:background="?background"
 		android:fitsSystemWindows="true"
 		app:itemIconSize="15dp"
-		app:menu="@menu/app_main_drawer" />
-
+		app:menu="@menu/navigation_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>

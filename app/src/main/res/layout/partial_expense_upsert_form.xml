@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:padding="@dimen/padding"
+	tools:ignore="HardcodedText">
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:layout_width="match_parent"
+		android:layout_height="60dp">
+
+		<com.google.android.material.textfield.MaterialAutoCompleteTextView
+			android:id="@+id/dropdown_type"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:hint="Type"
+			android:paddingHorizontal="12dp"
+			android:textSize="15sp"
+			app:simpleItems="@array/expense_types" />
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/margin"
+		android:orientation="horizontal">
+
+		<!-- date -->
+		<trip.m.expense.ui.view.TextInputView
+			android:id="@+id/text_input_date_of_expense"
+			android:layout_width="0dp"
+			android:layout_height="60dp"
+			android:layout_marginEnd="@dimen/margin"
+			android:layout_weight="1"
+			android:inputType="date"
+			android:textSize="15sp"
+			app:label="Date of Expense" />
+
+		<trip.m.expense.ui.view.TextInputView
+			android:id="@+id/text_input_amount"
+			android:layout_width="0dp"
+			android:layout_height="60dp"
+			android:layout_weight="1"
+			android:inputType="number"
+			android:textSize="15sp"
+			app:label="Amount" />
+	</LinearLayout>
+
+	<trip.m.expense.ui.view.TextInputView
+		android:id="@+id/text_input_comment"
+		android:layout_width="match_parent"
+		android:layout_height="100dp"
+		android:layout_marginTop="@dimen/margin"
+		android:gravity="top"
+		android:inputType="text|textMultiLine"
+		android:textSize="15sp"
+		app:label="Comment"
+		app:textPaddingVertical="16dp" />
+</LinearLayout>
+

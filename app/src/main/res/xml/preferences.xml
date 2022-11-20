@@ -4,13 +4,20 @@
 	tools:ignore="HardcodedText">
 
 	<Preference
+		app:icon="@drawable/ic_backup"
 		app:key="@string/pref_back_up_key"
 		app:summary="Backup current residents to the cloud"
-		app:title="Back up" />
+		app:title="Back Up" />
 
 	<Preference
+		app:icon="@drawable/ic_refresh"
 		app:key="@string/pref_reset_db_key"
 		app:summary="Delete all of the current residents"
-		app:title="Reset database" />
+		app:title="Delete Data" />
 
+	<SwitchPreference
+		app:icon="@drawable/ic_dark_mode"
+		app:key="@string/pref_theme_mode_key"
+		app:summary="App theme mode e.g., dark or light"
+		app:title="Dark Mode" />
 </PreferenceScreen>

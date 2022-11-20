@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="RtlHardcoded,HardcodedText">
+
+	<data>
+
+		<variable
+			name="padding"
+			type="java.lang.Integer" />
+	</data>
+
+	<LinearLayout
+		android:id="@+id/partial_trip_detail"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<trip.m.expense.ui.view.KeyValueWrapperView
+			android:id="@+id/layout_trip_detail_text_name"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:left_text="Name" />
+
+		<trip.m.expense.ui.view.KeyValueWrapperView
+			android:id="@+id/layout_trip_detail_text_destination"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			app:left_text="Destination" />
+
+		<trip.m.expense.ui.view.KeyValueWrapperView
+			android:id="@+id/layout_trip_detail_text_date_of_trip"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			app:left_text="Date of trip" />
+
+		<trip.m.expense.ui.view.KeyValueWrapperView
+			android:id="@+id/layout_trip_detail_text_risk_assessment"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			app:left_text="Risk assessment" />
+
+		<trip.m.expense.ui.view.KeyValueWrapperView
+			android:id="@+id/layout_trip_detail_text_desription"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			app:left_text="Description" />
+	</LinearLayout>
+</layout>

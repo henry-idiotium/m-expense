@@ -4,22 +4,22 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".MainActivity">
+	tools:context="trip.m.expense.MainActivity">
 
 	<com.google.android.material.appbar.AppBarLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:theme="@style/Theme.MExpense.AppBarOverlay">
+		android:theme="@style/MExpense.AppBarOverlay"
+		app:elevation="0dp">
 
-		<androidx.appcompat.widget.Toolbar
+		<com.google.android.material.appbar.MaterialToolbar
 			android:id="@+id/toolbar"
 			android:layout_width="match_parent"
 			android:layout_height="?actionBarSize"
-			android:background="?colorPrimary"
-			app:popupTheme="@style/Theme.MExpense.PopupOverlay" />
-
+			android:paddingStart="0dp"
+			android:paddingEnd="8dp"
+			app:popupTheme="@style/MExpense.PopupOverlay" />
 	</com.google.android.material.appbar.AppBarLayout>
 
 	<include layout="@layout/content_main" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

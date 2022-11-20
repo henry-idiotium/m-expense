@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- calendar -->
+	<style name="MExpense.DatePicker" parent="ThemeOverlay.Material3.MaterialCalendar">
+		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Rounded</item>
+	</style>
+
+	<style name="MExpense.Dialog.Fullscreen" parent="">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowFullscreen">true</item>
+		<item name="android:windowIsFloating">false</item>
+		<item name="android:popupBackground">@color/transparent</item>
+	</style>
+
+	<style name="MExpense.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+		<item name="alertDialogStyle">@style/MExpense.MaterialDialog</item>
+	</style>
+
+	<style name="MExpense.MaterialDialog" parent="MaterialAlertDialog.Material3">
+		<item name="shapeAppearance">@style/ShapeAppearance.Rounded</item>
+		<item name="shapeAppearanceOverlay">@null</item>
+	</style>
+</resources>

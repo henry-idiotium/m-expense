@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<include
+			android:id="@+id/partial_dialog_toolbar"
+			layout="@layout/partial_dialog_toolbar"
+			app:title="@{`Update Expense`}" />
+
+		<include
+			android:id="@+id/partial_expense_upsert_form"
+			layout="@layout/partial_expense_upsert_form" />
+	</LinearLayout>
+</layout>

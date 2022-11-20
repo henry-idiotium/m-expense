@@ -1,8 +1,8 @@
 <resources>
 	<string name="app_name">M Expense</string>
 
-	<string name="nav_drawer_open">Open</string>
-	<string name="nav_drawer_close">Close</string>
+	<string name="nav_drawer_open">Open sidebar</string>
+	<string name="nav_drawer_close">Close sidebar</string>
 
 	<!-- TODO: Remove or change this placeholder text -->
 	<string name="hello_blank_fragment">Hello blank fragment</string>
@@ -13,7 +13,7 @@
 	<string name="error_no_info">No Information</string>
 	<string name="error_not_found">Not Found</string>
 
-	<string name="label_add_request">Add Request</string>
+	<string name="label_add_expense">Add Request</string>
 	<string name="label_backup">Backup</string>
 	<string name="label_backup_firestore">Firestore Backup</string>
 	<string name="label_cancel">Cancel</string>
@@ -39,11 +39,12 @@
 
 	<string name="notification_backup_fail">Not backup successfully.</string>
 	<string name="notification_backup_success">Backup successfully.</string>
-	<string name="notification_create_fail">Not created successfully.</string>
-	<string name="notification_create_success">Created successfully.</string>
-	<string name="notification_delete_confirm">Are you sure to delete this?.</string>
+	<string name="notification_failed">Failed</string>
+	<string name="notification_succeeded">Succeeded</string>
+	<string name="notification_delete_confirm">Are you sure to delete this?</string>
 	<string name="notification_delete_fail">Not deleted successfully.</string>
 	<string name="notification_delete_success">Deleted successfully.</string>
+	<string name="notification_resident_not_found">Resident not found!</string>
 	<string name="notification_empty_request_list">There is no request.</string>
 	<string name="notification_empty_resident_list">There is no resident.</string>
 	<string name="notification_reset_database_success">Reset database successfully.</string>
@@ -51,20 +52,26 @@
 	<string name="notification_update_success">Updated successfully.</string>
 	<string name="about_us_resima">RESIMA</string>
 	<string name="about_us_name">Resident Management System</string>
-	<string name="about_us_copyright">Copyright © 2022 by Serco Honan</string>
-	<string name="about_us_phone">Phone: (+84) 96 2242 999</string>
-	<string name="about_us_email">Email: baohnp@fe.edu.vn</string>
-	<string name="about_us_disclaimer">This sample includes only basic features, no validation and no error handling.</string>
-	<string name="about_us_logo">australia scouts logo</string>
 
-	<string-array name="request_type">
-		<item>Security</item>
-		<item>Facility</item>
-		<item>Hygiene</item>
+	<string-array name="expense_types">
+		<item>Meals</item>
+		<item>Others</item>
+		<item>Travel</item>
+		<item>Supplies</item>
+		<item>Mileage</item>
+		<item>Repairs</item>
+		<item>Supplies</item>
+		<item>Heath Care</item>
+		<item>Refreshments</item>
+		<item>Transport Rental</item>
 	</string-array>
 
 	<!-- Preference -->
 	<string name="pref_back_up_key">back_up</string>
 	<string name="pref_reset_db_key">reset_db</string>
-    <string name="error_message_unknown_exception">Something went wrong !!</string>
+	<string name="pref_theme_mode_key">app_theme</string>
+
+	<string name="error_message_unknown_exception">Something went wrong !!</string>
+	<string name="app_config">trip.m.expense.APP_CONFIG</string>
+	<string name="app_config_theme_mode">trip.m.expense.APP_CONFIG_THEME_MODE</string>
 </resources>

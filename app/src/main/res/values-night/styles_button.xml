@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="MExpense.Button" parent="Widget.Material3.Button">
+		<item name="backgroundTint">@color/transparent</item>
+		<item name="android:textColor">@color/purple_200</item>
+		<item name="rippleColor">@color/grey_700</item>
+	</style>
+</resources>
+

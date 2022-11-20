@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/entity_list_with_background"
+	android:paddingVertical="5dp"
+	tools:context=".ui.expense.list.ExpenseListFragment"
+	tools:ignore="HardcodedText">
+
+	<ImageView
+		android:id="@+id/img_empty_notice"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:layout_centerInParent="true"
+		android:contentDescription="Indicate empty list of residents"
+		android:src="@drawable/ic_upcomming"
+		app:tint="?android:textColorHint" />
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/list_expenses"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fadeScrollbars="true"
+		android:scrollbars="vertical" />
+</RelativeLayout>

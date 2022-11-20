@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/partial_expense_detail"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="@dimen/margin"
+	android:orientation="vertical">
+
+	<trip.m.expense.ui.view.KeyValueWrapperView
+		android:id="@+id/layout_text_type"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:left_text="Type" />
+
+	<trip.m.expense.ui.view.KeyValueWrapperView
+		android:id="@+id/layout_text_amount"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		app:left_text="Amount" />
+
+	<trip.m.expense.ui.view.KeyValueWrapperView
+		android:id="@+id/layout_text_date_of_expense"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		app:left_text="Date of Expense" />
+
+	<trip.m.expense.ui.view.KeyValueWrapperView
+		android:id="@+id/layout_text_comment"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		app:left_text="Comment" />
+</LinearLayout>

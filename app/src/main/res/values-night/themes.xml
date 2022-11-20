@@ -1,29 +1,26 @@
 <resources>
-	<!-- Base application theme. -->
-	<style name="Theme.MExpense" parent="Theme.MaterialComponents.NoActionBar">
 
-		<!-- Primary brand color. -->
-		<item name="colorPrimary">@color/purple_200</item>
-		<item name="colorPrimaryVariant">@color/purple_700</item>
+	<style name="MExpense" parent="MExpense.Colors">
+		<!-- remove actionbar -->
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
 
-		<!-- Secondary brand color. -->
-		<item name="colorSecondary">@color/teal_200</item>
-		<item name="colorSecondaryVariant">@color/teal_200</item>
-		<item name="background">@color/black_800</item>
-		<item name="backgroundColor">@color/black_400</item>
-		<item name="colorOnBackground">@color/black_400</item>
-
-		<!-- Status bar color. -->
-		<item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-
-		<!-- Nav item state -->
-		<item name="android:drawable">@color/black_800</item>
-		<item name="android:state_activated">@color/black_400</item>
-		<item name="android:state_pressed">@color/black_400</item>
-
-		<!-- Text -->
-		<item name="android:textColorHint">@color/grey_300</item>
-		<item name="android:textColor">@color/white</item>
-
+		<!-- Extends -->
+		<item name="appButtonStyle">@style/MExpense.Button</item>
+		<item name="textInputStyle">@style/MExpense.TextInputLayout.OutlinedBox</item>
+		<item name="appIconButtonStyle">@style/MExpense.Button.IconOnly</item>
+		<item name="preferenceTheme">@style/MExpense.Preference</item>
+		<item name="materialCalendarTheme">@style/MExpense.DatePicker</item>
+		<item name="materialAlertDialogTheme">@style/MExpense.AlertDialog</item>
 	</style>
+
+	<!--<editor-fold desc="others">-->
+	<style name="MExpense.AppBarOverlay" parent="Widget.Material3.ActionBar.Solid" />
+
+	<style name="MExpense.PopupOverlay" parent="ThemeOverlay.Material3.Dark" />
+
+	<style name="MExpense.Preference" parent="PreferenceThemeOverlay.v14.Material">
+		<item name="android:tint">@color/white</item>
+	</style>
+	<!--</editor-fold>-->
 </resources>

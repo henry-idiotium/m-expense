@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:padding="@dimen/padding"
+	tools:ignore="HardcodedText">
+
+	<trip.m.expense.ui.view.TextInputView
+		android:id="@+id/text_input_name"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textSize="15sp"
+		app:label="@string/label_name" />
+
+	<trip.m.expense.ui.view.TextInputView
+		android:id="@+id/text_input_destination"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:textSize="15sp"
+		app:label="Destination" />
+
+	<trip.m.expense.ui.view.TextInputView
+		android:id="@+id/text_input_date_of_trip"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:autofillHints=""
+		android:inputType="date"
+		android:textSize="15sp"
+		app:label="Date of trip" />
+
+	<com.google.android.material.materialswitch.MaterialSwitch
+		android:id="@+id/switch_risk_assessment"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:paddingHorizontal="15dp"
+		android:text="Risk assessment required"
+		android:textSize="15sp" />
+
+	<trip.m.expense.ui.view.TextInputView
+		android:id="@+id/text_input_description"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_marginTop="15dp"
+		android:autofillHints=""
+		android:gravity="top"
+		android:inputType="textMultiLine"
+		android:textSize="15sp"
+		app:label="Description"
+		app:textPaddingVertical="16dp" />
+</LinearLayout>

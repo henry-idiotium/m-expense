@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="RelativeOverlap">
+
+	<data>
+
+		<variable
+			name="title"
+			type="java.lang.String" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="64dp"
+		android:backgroundTint="?toolbarBackgroundColor"
+		android:gravity="center_vertical"
+		android:paddingStart="0dp"
+		android:paddingEnd="8dp">
+
+		<trip.m.expense.ui.view.IconButtonView
+			android:id="@+id/btn_dismiss_dialog"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
+			android:backgroundTint="?backgroundColor"
+			android:outlineProvider="none"
+			app:icon="@drawable/ic_back_arrow"
+			app:iconSize="25dp"
+			app:iconTint="?android:textColorHint"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<com.google.android.material.textview.MaterialTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="10dp"
+			android:background="@color/transparent"
+			android:text="@{title}"
+			android:textSize="20sp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toRightOf="@+id/btn_dismiss_dialog"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<trip.m.expense.ui.view.IconButtonView
+			android:id="@+id/btn_confirm"
+			android:layout_width="50dp"
+			android:layout_height="wrap_content"
+			android:backgroundTint="?backgroundColor"
+			android:outlineProvider="none"
+			app:icon="@drawable/ic_check"
+			app:iconSize="25dp"
+			app:iconTint="?colorConfirmCheck"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

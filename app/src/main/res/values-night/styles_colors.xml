@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="MExpense.Colors" parent="Theme.Material3.Dark.NoActionBar">
+		<item name="colorConfirmCheck">@color/green_teal_200</item>
+
+		<item name="colorPrimary">@color/purple_200</item>
+		<item name="colorPrimaryVariant">@color/purple_700</item>
+
+		<item name="colorSecondary">@color/green_teal_200</item>
+		<item name="colorSecondaryVariant">@color/green_teal_600</item>
+		<item name="background">@color/black_800</item>
+		<item name="backgroundColor">@color/black_400</item>
+		<item name="colorOnBackground">@color/black_400</item>
+		<item name="backgroundDim">@color/black_200</item>
+		<item name="toolbarBackgroundColor">@color/black_400</item>
+
+		<!-- Status bar color. -->
+		<item name="android:statusBarColor">@color/black_800</item>
+
+		<!-- Nav item state -->
+		<item name="android:drawable">@color/black_800</item>
+		<item name="android:state_activated">@color/black_400</item>
+		<item name="android:state_pressed">@color/black_400</item>
+
+		<!-- Text -->
+		<item name="android:textColorHint">@color/grey_300</item>
+		<item name="android:textColor">@color/white</item>
+	</style>
+</resources>

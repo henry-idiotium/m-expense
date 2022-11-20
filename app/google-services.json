@@ -1,62 +1,33 @@
 {
   "project_info": {
-    "project_number": "259945062457",
-    "project_id": "java-10-firebase",
-    "storage_bucket": "java-10-firebase.appspot.com"
+    "project_number": "121221778597",
+    "project_id": "trip-m-expense-438976",
+    "storage_bucket": "trip-m-expense-438976.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:259945062457:android:8fbccd9377b99e0c162de8",
+        "mobilesdk_app_id": "1:121221778597:android:2b4f340bd22b4b5af8d14c",
         "android_client_info": {
-          "package_name": "vn.edu.greenwich.cw_1_sample"
+          "package_name": "trip.m.expense"
         }
       },
       "oauth_client": [
         {
-          "client_id": "259945062457-7i195732vaq65ip0l5bivtukaq0a2mgr.apps.googleusercontent.com",
+          "client_id": "121221778597-88ulda7r89u0bvu3kbdfdaqq90kptsta.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAq5-FgoinntpXgKXJiFCIOiso74q8eDO8"
+          "current_key": "AIzaSyBvCz-lCsSlvzipv14X1QeoDX_ii2G88i4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "259945062457-7i195732vaq65ip0l5bivtukaq0a2mgr.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:259945062457:android:89c359e174d8ee14162de8",
-        "android_client_info": {
-          "package_name": "vn.edu.greenwich.java_10"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "259945062457-7i195732vaq65ip0l5bivtukaq0a2mgr.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAq5-FgoinntpXgKXJiFCIOiso74q8eDO8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "259945062457-7i195732vaq65ip0l5bivtukaq0a2mgr.apps.googleusercontent.com",
+              "client_id": "121221778597-88ulda7r89u0bvu3kbdfdaqq90kptsta.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

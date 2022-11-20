@@ -3,52 +3,38 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/nav_graph"
-	app:startDestination="@id/fragment_resident_list">
+	app:startDestination="@id/nav_fm_home">
 
 	<fragment
-		android:id="@+id/fragment_resident_list"
-		android:name="vn.edu.greenwich.cw_1_sample.ui.resident.list.ResidentListFragment"
-		android:label="Resident List"
-		tools:layout="@layout/fragment_resident_list">
+		android:id="@+id/nav_fm_home"
+		android:name="trip.m.expense.ui.trip.list.TripListFragment"
+		android:label="Trip List"
+		tools:layout="@layout/fragment_trip_list">
+
 		<action
-			android:id="@+id/action_residentListFragment_to_residentDetailFragment"
-			app:destination="@id/fragment_resident_detail" />
-		<action
-			android:id="@+id/action_fragment_resident_list_to_fragment_resident_register"
-			app:destination="@id/fragment_resident_register" />
-		<action
-			android:id="@+id/action_fragment_resident_list_to_fragment_about_us"
-			app:destination="@id/fragment_about_us" />
+			android:id="@+id/action_nav_fm_home_to_nav_fm_trip_detail"
+			app:destination="@id/nav_fm_trip_detail" />
 	</fragment>
 
 	<fragment
-		android:id="@+id/fragment_resident_detail"
-		android:name="vn.edu.greenwich.cw_1_sample.ui.resident.ResidentDetailFragment"
-		android:label="Resident Detail"
-		tools:layout="@layout/fragment_resident_detail">
+		android:id="@+id/nav_fm_trip_detail"
+		android:name="trip.m.expense.ui.trip.TripDetailFragment"
+		android:label="Trip Detail"
+		tools:layout="@layout/fragment_trip_detail">
+
 		<argument
-			android:name="Resident"
-			app:argType="vn.edu.greenwich.cw_1_sample.models.Resident" />
-		<action
-			android:id="@+id/action_residentDetailFragment_to_residentUpdateFragment"
-			app:destination="@id/menu_action_resident_detail_update" />
+			android:name="Trip"
+			app:argType="trip.m.expense.models.Trip" />
 	</fragment>
 
 	<fragment
-		android:id="@+id/fragment_about_us"
-		android:name="vn.edu.greenwich.cw_1_sample.ui.AboutUsFragment"
+		android:id="@+id/nav_fm_about_us"
+		android:name="trip.m.expense.ui.AboutUsFragment"
 		android:label="About Us"
 		tools:layout="@layout/fragment_about_us" />
 
 	<fragment
-		android:id="@+id/menu_action_resident_detail_update"
-		android:name="vn.edu.greenwich.cw_1_sample.ui.resident.ResidentUpdateFragment"
-		android:label="Resident Update"
-		tools:layout="@layout/fragment_resident_update" />
-
-	<fragment
-		android:id="@+id/fragment_settings"
-		android:name="vn.edu.greenwich.cw_1_sample.ui.SettingsFragment"
+		android:id="@+id/nav_fm_preferences"
+		android:name="trip.m.expense.ui.PreferenceFragment"
 		android:label="Settings" />
-
 </navigation>

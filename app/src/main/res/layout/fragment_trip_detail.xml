@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_margin="@dimen/outer_wrapper"
+	tools:context="trip.m.expense.ui.trip.TripDetailFragment"
+	tools:ignore="HardcodedText,RtlHardcoded">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<ScrollView
+			android:id="@+id/layout_linear_detail"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="30dp"
+			android:baselineAligned="false"
+			android:orientation="horizontal"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<include
+				android:id="@+id/partial_trip_detail"
+				layout="@layout/partial_trip_detail" />
+		</ScrollView>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:padding="0dp"
+			android:paddingTop="10dp">
+
+			<LinearLayout
+				android:id="@+id/layout_expense_header"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="15dp"
+				android:orientation="vertical">
+
+				<View
+					android:id="@+id/separator"
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:layout_marginBottom="10dp"
+					android:background="?background" />
+
+				<com.google.android.material.textview.MaterialTextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Requests"
+					android:textSize="18sp" />
+			</LinearLayout>
+
+			<androidx.fragment.app.FragmentContainerView
+				android:id="@+id/list_expenses"
+				android:name="trip.m.expense.ui.expense.list.ExpenseListFragment"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:padding="0dp"
+				tools:layout="@layout/fragment_expense_list" />
+		</LinearLayout>
+	</LinearLayout>
+
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/btn_add_expense"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end|bottom"
+		android:contentDescription="add expense"
+		android:src="@drawable/ic_add"
+		app:maxImageSize="36dp" />
+</FrameLayout>

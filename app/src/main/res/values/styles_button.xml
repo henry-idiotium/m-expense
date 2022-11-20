@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="MExpense.Button" parent="Widget.Material3.Button">
+		<item name="cornerSize">30dp</item>
+		<item name="backgroundTint">@color/transparent</item>
+		<item name="android:textColor">@color/purple_700</item>
+		<item name="rippleColor">@color/grey_300</item>
+	</style>
+
+	<style name="MExpense.Button.IconOnly" parent="Widget.Material3.Button.IconButton.Filled">
+		<item name="maxImageSize">36dp</item>
+		<item name="android:elevation">4dp</item>
+		<item name="rippleColor">@color/grey_300</item>
+	</style>
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="@dimen/outer_wrapper"
+	tools:context="trip.m.expense.ui.trip.list.TripListFragment"
+	tools:ignore="HardcodedText">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:id="@+id/layout_linear_searchbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:orientation="horizontal">
+
+			<trip.m.expense.ui.view.TextInputView
+				android:id="@+id/text_list_filter"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				app:minHeight="35dp"
+				android:layout_marginEnd="20dp"
+				android:layout_weight="1"
+				android:textSize="15sp"
+				app:endIconMode="clear_text"
+				app:label="Search" />
+
+			<trip.m.expense.ui.view.IconButtonView
+				android:id="@+id/btn_search"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="13dp"
+				android:backgroundTint="?backgroundColor"
+				android:contentDescription="filter submit"
+				app:icon="@drawable/ic_search"
+				app:iconTint="?android:textColorHint" />
+		</LinearLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="25dp"
+			android:background="@drawable/entity_list_with_background"
+			android:paddingVertical="5dp">
+
+			<ImageView
+				android:id="@+id/img_empty_notice"
+				android:layout_width="60dp"
+				android:layout_height="60dp"
+				android:layout_centerInParent="true"
+				android:contentDescription="Indicate empty list of residents"
+				android:src="@drawable/ic_upcomming"
+				app:tint="?android:textColorHint" />
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/list_trips"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:fadeScrollbars="true"
+				android:scrollbars="vertical" />
+		</RelativeLayout>
+	</LinearLayout>
+
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/btn_resident_add"
+		style="?attr/floatingActionButtonSecondaryStyle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end|bottom"
+		android:contentDescription="Submit"
+		android:src="@drawable/ic_add"
+		app:cornerRadius="40dp"
+		app:maxImageSize="36dp" />
+</FrameLayout>

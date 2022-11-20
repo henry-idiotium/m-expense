@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context="trip.m.expense.ui.trip.TripUpdateFragment"
+	tools:ignore="HardcodedText">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_margin="10dp"
+		android:orientation="vertical">
+
+		<include
+			android:id="@+id/partial_dialog_toolbar"
+			layout="@layout/partial_dialog_toolbar"
+			app:title="@{`Update Trip`}" />
+
+		<include
+			android:id="@+id/partial_trip_upsert_form"
+			layout="@layout/partial_trip_upsert_form" />
+	</LinearLayout>
+</layout>
