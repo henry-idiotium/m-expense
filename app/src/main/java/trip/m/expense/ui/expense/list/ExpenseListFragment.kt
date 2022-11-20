@@ -33,7 +33,7 @@ class ExpenseListFragment : Fragment(R.layout.fragment_expense_list) {
 		val dividerItemDecoration = DividerItemDecoration(context, _linearLayoutManager.orientation)
 
 		_binding.listExpenses.addItemDecoration(dividerItemDecoration)
-		_binding.listExpenses.adapter = ExpenseAdapter(_expensesToShow)
+		_binding.listExpenses.adapter = ExpenseAdapter(_expensesToShow, childFragmentManager)
 		_binding.listExpenses.layoutManager = LinearLayoutManager(context)
 
 		reloadList()
@@ -45,7 +45,7 @@ class ExpenseListFragment : Fragment(R.layout.fragment_expense_list) {
 		if (_tripId == -1L) return
 
 		_expensesToShow = _db.get(Expense(tripId = _tripId))
-		_binding.listExpenses.adapter = ExpenseAdapter(_expensesToShow)
+		_binding.listExpenses.adapter = ExpenseAdapter(_expensesToShow, childFragmentManager)
 		_binding.listExpenses.layoutManager = LinearLayoutManager(context)
 
 		val isEmptyList = _expensesToShow.isEmpty()

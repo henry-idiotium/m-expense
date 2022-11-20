@@ -7,15 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import trip.m.expense.R
 import trip.m.expense.databinding.AdapterItemExpenseBinding
 import trip.m.expense.models.Expense
+import trip.m.expense.toSimpleDateFormat
 import trip.m.expense.ui.expense.ExpenseDetailFragment
 import java.util.*
 
-class ExpenseAdapter(private var _originalList: ArrayList<Expense>) :
+class ExpenseAdapter(
+	private var _originalList: ArrayList<Expense>,
+	private val _fragmentManager: FragmentManager,
+) :
 	RecyclerView.Adapter<ExpenseAdapter.ViewHolder>(),
 	Filterable {
 
@@ -34,7 +38,7 @@ class ExpenseAdapter(private var _originalList: ArrayList<Expense>) :
 
 		binding.listItemExpenseType.text = expense.type.value
 		binding.listItemExpenseAmount.text = expense.amount.toString()
-		binding.listItemExpenseDateOfExpense.text = expense.dateOfExpense.toString()
+		binding.listItemExpenseDateOfExpense.text = expense.dateOfExpense.toSimpleDateFormat()
 	}
 
 	override fun getItemCount(): Int = _filteredList.size
@@ -47,11 +51,7 @@ class ExpenseAdapter(private var _originalList: ArrayList<Expense>) :
 			binding.root.setOnClickListener { showDetail() }
 		}
 
-		private fun showDetail() {
-			val id = _filteredList[adapterPosition].id
-			val fmManager = (_context as AppCompatActivity).supportFragmentManager
-			ExpenseDetailFragment(id).show(fmManager, null)
-		}
+		private fun showDetail() = ExpenseDetailFragment(_filteredList[adapterPosition].id).show(_fragmentManager, null)
 	}
 
 	fun update(list: ArrayList<Expense>) {

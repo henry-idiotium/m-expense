@@ -62,12 +62,15 @@ class ExpenseUpdateFragment(private var _expense: Expense) : DialogFragment(R.la
 			.setTitle("Confirmation")
 			.setNeutralButton("Cancel") { dialog, _ -> dialog.dismiss() }
 			.setPositiveButton("Confirm") { _, _ ->
-				val succeeded = update() == -1L
+				val succeeded = update() != -1L
 				val messageId = if (succeeded) R.string.notification_failed
 				else R.string.notification_succeeded
 
 				Toast.makeText(context, messageId, Toast.LENGTH_SHORT).show()
-				this@ExpenseUpdateFragment.dismiss()
+				if (succeeded) {
+					(requireParentFragment() as ExpenseListFragment).reloadList()
+					this@ExpenseUpdateFragment.dismiss()
+				}
 			}.create()
 	}
 

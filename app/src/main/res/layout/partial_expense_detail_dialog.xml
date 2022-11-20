@@ -4,7 +4,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:paddingHorizontal="30dp"
-	android:paddingTop="20dp"
+	android:paddingTop="16dp"
 	tools:ignore="HardcodedText,RtlHardcoded">
 
 	<include

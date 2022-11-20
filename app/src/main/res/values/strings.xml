@@ -54,16 +54,16 @@
 	<string name="about_us_name">Resident Management System</string>
 
 	<string-array name="expense_types">
-		<item>Meals</item>
-		<item>Others</item>
-		<item>Travel</item>
-		<item>Supplies</item>
-		<item>Mileage</item>
-		<item>Repairs</item>
-		<item>Supplies</item>
-		<item>Heath Care</item>
-		<item>Refreshments</item>
-		<item>Transport Rental</item>
+		<item>meals</item>
+		<item>others</item>
+		<item>travel</item>
+		<item>supplies</item>
+		<item>mileage</item>
+		<item>repairs</item>
+		<item>supplies</item>
+		<item>heath care</item>
+		<item>refreshments</item>
+		<item>transport rental</item>
 	</string-array>
 
 	<!-- Preference -->

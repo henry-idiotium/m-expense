@@ -23,12 +23,14 @@ import trip.m.expense.models.Trip
 import trip.m.expense.serializable
 import trip.m.expense.toSimpleDateFormat
 import trip.m.expense.ui.expense.ExpenseCreateFragment
+import trip.m.expense.ui.expense.ExpenseDetailFragment
 import trip.m.expense.ui.expense.list.ExpenseListFragment
 
 class TripDetailFragment :
 	Fragment(R.layout.fragment_trip_detail),
 	ExpenseCreateFragment.FragmentListener,
 	TripUpdateFragment.FragmentListener,
+	ExpenseDetailFragment.FragmentListener,
 	MenuProvider {
 
 	private lateinit var _binding: FragmentTripDetailBinding
@@ -125,6 +127,9 @@ class TripDetailFragment :
 			Bundle().apply { putSerializable(ExpenseListFragment.ARG_PARAM_TRIP_ID, _trip.id) }
 		).commit()
 	}
+
+	override fun onExpenseDeleted() = reloadExpenseList()
+	override fun onExpenseUpdated() = reloadExpenseList()
 
 	companion object {
 		const val ARG_PARAM_TRIP_ID = "trip_id"

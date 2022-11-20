@@ -14,6 +14,6 @@ enum class ExpenseType(val value: String) {
 
 	companion object {
 		private val expenses = values().associateBy { it.value }
-		infix fun get(name: String) = expenses[name]!!
+		infix fun get(name: String) = expenses[name.lowercase()]!!
 	}
 }

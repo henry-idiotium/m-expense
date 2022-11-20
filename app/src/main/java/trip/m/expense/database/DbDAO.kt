@@ -146,7 +146,7 @@ open class DbDAO(contentContext: Context?) {
 			getValuesFromDb(selection = "${entry.COL_ID} = ?", selectionArgs = arrayOf(id.toString()))[0]
 
 		private infix fun getContentValues(trip: Expense) = ContentValues().apply {
-			put(entry.COL_TYPE, trip.type.value)
+			put(entry.COL_TYPE, trip.type.ordinal)
 			put(entry.COL_DATE_OF_EXPENSE, trip.dateOfExpense.toString())
 			put(entry.COL_COMMENT, trip.comment)
 			put(entry.COL_TRIP_ID, trip.tripId)

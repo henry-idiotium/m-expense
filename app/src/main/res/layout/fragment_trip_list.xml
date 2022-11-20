@@ -4,14 +4,14 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:padding="@dimen/outer_wrapper"
 	tools:context="trip.m.expense.ui.trip.list.TripListFragment"
 	tools:ignore="HardcodedText">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:orientation="vertical">
+		android:orientation="vertical"
+		android:padding="@dimen/outer_wrapper">
 
 		<LinearLayout
 			android:id="@+id/layout_linear_searchbar"
@@ -24,20 +24,20 @@
 				android:id="@+id/text_list_filter"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				app:minHeight="35dp"
 				android:layout_marginEnd="20dp"
 				android:layout_weight="1"
 				android:textSize="15sp"
 				app:endIconMode="clear_text"
-				app:label="Search" />
+				app:label="Search"
+				app:minHeight="35dp" />
 
 			<trip.m.expense.ui.view.IconButtonView
 				android:id="@+id/btn_search"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:padding="13dp"
 				android:backgroundTint="?backgroundColor"
 				android:contentDescription="filter submit"
+				android:padding="13dp"
 				app:icon="@drawable/ic_search"
 				app:iconTint="?android:textColorHint" />
 		</LinearLayout>
@@ -73,6 +73,8 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="end|bottom"
+		android:layout_marginEnd="@dimen/margin"
+		android:layout_marginBottom="@dimen/margin"
 		android:contentDescription="Submit"
 		android:src="@drawable/ic_add"
 		app:cornerRadius="40dp"

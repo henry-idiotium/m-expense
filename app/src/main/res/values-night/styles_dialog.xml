@@ -3,7 +3,7 @@
 
 	<style name="MExpense.DatePicker" parent="ThemeOverlay.Material3.MaterialCalendar">
 		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Rounded</item>
-		<item name="android:background">@color/black_800</item>
+		<item name="android:background">@color/black_400</item>
 	</style>
 
 	<style name="MExpense.Dialog.Fullscreen" parent="">
@@ -16,5 +16,11 @@
 	<style name="MExpense.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
 		<item name="android:background">@color/black_400</item>
 		<item name="alertDialogStyle">@style/MExpense.MaterialDialog</item>
+		<item name="buttonBarNegativeButtonStyle">@style/MExpense.AlertDialog.NeutralButtonStyle</item>
+	</style>
+
+	<style name="MExpense.AlertDialog.NeutralButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog.Flush">
+		<item name="android:textColor">@color/red</item>
+		<item name="rippleColor">@color/red</item>
 	</style>
 </resources>
